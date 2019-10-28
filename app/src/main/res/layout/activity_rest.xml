@@ -1,0 +1,507 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/color_343333"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#523c34">
+                <ImageView
+                    android:id="@+id/menu_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:onClick="finishActivity"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:src="@mipmap/return_icon" />
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="车位剩余情况"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:id="@+id/cp101_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_layout"
+        android:layout_margin="3dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/type_item_selector"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="101车位:"
+                    android:textSize="18sp"
+                    android:textColor="#663300" />
+                <EditText
+                    android:id="@+id/num101"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:editable="true"
+                    android:textColor="@color/color_393939" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:paddingLeft="35dp"
+                        android:text="102车位:"
+                        android:layout_gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="#663300" />
+                    <EditText
+                        android:id="@+id/num102"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="1"
+                        android:textSize="18sp"
+                        android:textColor="@color/color_393939" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/cp201_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cp101_layout"
+        android:layout_margin="3dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/type_item_selector"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="201车位:"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#663300" />
+                <EditText
+                    android:id="@+id/num201"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_393939" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:paddingLeft="35dp"
+                    android:text="202车位:"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#663300" />
+                <EditText
+                    android:id="@+id/num202"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_393939" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cp301_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cp201_layout"
+        android:layout_margin="3dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/type_item_selector"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="301车位:"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#663300" />
+                <EditText
+                    android:id="@+id/num301"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_393939" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:paddingLeft="35dp"
+                    android:text="302车位:"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#663300" />
+                <EditText
+                    android:id="@+id/num302"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_393939" />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cp401_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cp301_layout"
+        android:layout_margin="3dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/type_item_selector"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="401车位:"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#663300" />
+                <EditText
+                    android:id="@+id/num401"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_393939" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:paddingLeft="35dp"
+                    android:text="402车位:"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#663300" />
+                <EditText
+                    android:id="@+id/num402"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_393939" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cp501_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cp401_layout"
+        android:layout_margin="3dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:background="@drawable/type_item_selector"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="501车位:"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#663300" />
+                <EditText
+                    android:id="@+id/num501"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_393939" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:paddingLeft="35dp"
+                        android:text="502车位:"
+                        android:layout_gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="#663300" />
+                    <EditText
+                        android:id="@+id/num502"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="1"
+                        android:textSize="18sp"
+                        android:textColor="@color/color_393939" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cp601_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cp501_layout"
+        android:layout_margin="3dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:background="@drawable/type_item_selector"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="601车位:"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#663300" />
+                <EditText
+                    android:id="@+id/num601"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_393939" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:paddingLeft="35dp"
+                        android:text="602车位"
+                        android:layout_gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="#663300" />
+                    <EditText
+                        android:id="@+id/num602"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:text="1"
+                        android:textSize="18sp"
+                        android:textColor="@color/color_393939" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cp603_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cp601_layout"
+        android:layout_margin="3dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:background="@drawable/type_item_selector"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="603车位"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#663300" />
+                <EditText
+                    android:id="@+id/num603"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:textColor="@color/color_393939" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/cpchange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/text_bg"
+            android:clickable="true"
+            android:layout_below="@id/cp603_layout"
+            android:gravity="center"
+            android:padding="12dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="修改"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+</RelativeLayout>
+

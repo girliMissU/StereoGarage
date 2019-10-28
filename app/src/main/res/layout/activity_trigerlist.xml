@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#523c34"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/menu_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:onClick="finishActivity"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:src="@mipmap/return_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="触发器列表"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/trigermanage_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_layout"
+        android:layout_margin="12dp"
+        android:background="@drawable/edge_shadow_bg"
+        android:orientation="vertical"
+        android:paddingBottom="10sp"
+        android:visibility="visible">
+
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/text_style"
+                    android:text="名称" />
+
+                <TextView
+                    android:id="@+id/name1"
+                    style="@style/text_style"
+                    android:text="急停开关"
+                    android:textColor="@color/color_393939" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nam"
+                    style="@style/text_style"
+                    android:text="数据模板名称" />
+
+                <TextView
+                    android:id="@+id/nam1"
+                    style="@style/text_style"
+                    android:text="聚力c区"
+                    android:textColor="@color/color_393939" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/na"
+                    style="@style/text_style"
+                    android:text="数据点名称" />
+
+                <TextView
+                    android:id="@+id/na1"
+                    style="@style/text_style"
+                    android:text="急停开关"
+                    android:textColor="@color/color_393939" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/value"
+                    style="@style/text_style"
+                    android:text="触发条件" />
+
+                <TextView
+                    android:id="@+id/value1"
+                    style="@style/text_style"
+                    android:text="开关OFF"
+                    android:textColor="@color/color_393939" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/baojing"
+                    style="@style/text_style"
+                    android:text="保存规则" />
+
+                <TextView
+                    android:id="@+id/baojing1"
+                    style="@style/text_style"
+                    android:text="保存"
+                    android:textColor="@color/color_393939" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/time"
+                    style="@style/text_style"
+                    android:text="报警方式" />
+
+                <TextView
+                    android:id="@+id/time1"
+                    style="@style/text_style"
+                    android:text="微信"
+                    android:textColor="@color/color_393939" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/status"
+                    style="@style/text_style"
+                    android:text="触发器状态" />
+
+                <TextView
+                    android:id="@+id/status1"
+                    style="@style/text_style"
+                    android:text="启用"
+                    android:textColor="@color/color_393939" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/action"
+                    style="@style/text_style"
+                    android:text="更新时间" />
+
+                <TextView
+                    android:id="@+id/action1"
+                    style="@style/text_style"
+                    android:text="2019-02-14"
+                    android:textColor="@color/color_393939" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+
+                    style="@style/text_style"
+                    android:text="" />
+
+                <TextView
+
+                    style="@style/text_style"
+                    android:text=""
+                    android:textColor="@color/color_393939" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/text_bg"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="编辑"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/text_bg"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="10dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="删除"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+    </LinearLayout>
+    </LinearLayout>
+    </RelativeLayout>

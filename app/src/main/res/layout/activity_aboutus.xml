@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#523c34"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <ImageView
+                    android:id="@+id/menu_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:onClick="finishActivity"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:src="@mipmap/return_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="关于我们"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/aboutus_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_layout"
+        android:layout_margin="12dp"
+        android:background="@drawable/edge_shadow_bg"
+        android:orientation="vertical"
+        android:paddingBottom="10sp"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="8dp"
+            android:clickable="false"
+            android:layout_gravity="center"
+            android:src="@mipmap/juli" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="#663300" />
+
+
+
+
+            <TextView
+                android:id="@+id/textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:text="        “聚力”牌智能立体停车系统是由江苏聚力智能机械股份有限公司联合东南大学研制。江苏聚力智能机械股份有限公司位于江苏省吴江汾湖高新技术开发区，是一家专业生产电梯、扶梯部件、立体车库的省级高新技术企业。公司目前拥有10万平方米的厂区，9.9万平方米的生产车间。智能立体停车系统研发团队由海归博士牵头，十余位东南大学博士、硕士研究生和聚力公司技术骨干分工合作，该系统目前在国内处于领先地位。" />
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:text="        本APP解释权归聚力机械股份有限公司所有。"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="255"
+    android:background="#ffffff"
+    tools:context="com.stereogarage.activity.ForgiveActivity">
+
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="100dp"
+        android:orientation="vertical" >
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:gravity="center"
+            android:text="找回密码"
+            android:textColor="#663300"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/register_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/ll"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:id="@+id/input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/radius_drawable_bg"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <LinearLayout
+                android:id="@+id/username_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/u" />
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="#00000000"
+                    android:hint="请输入手机号码"
+                    android:editable="false"
+                    android:singleLine="true"
+                    android:padding="5dp"
+                    android:textSize="16sp"
+                    android:textCursorDrawable="@drawable/edittext_cursor"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/input_layout2"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/input_layout"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/radius_drawable_bg"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <LinearLayout
+                android:id="@+id/vcode_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/vcode" />
+
+                <EditText
+                    android:id="@+id/et_vcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="#00000000"
+                    android:hint="验证码"
+                    android:singleLine="true"
+                    android:padding="5dp"
+                    android:textSize="16sp"
+                    android:textCursorDrawable="@drawable/edittext_cursor"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/input_layout"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="0dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+            <Button
+                android:id="@+id/send_v_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginLeft="0dp"
+                android:minHeight="40dp"
+                android:maxLength="20"
+                android:text="发送验证码"
+                android:textColorHint="#95A1AA"
+                android:textCursorDrawable="@drawable/edittext_cursor"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="15sp"
+                android:background="@drawable/text_bg"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+    <!--登录按钮-->
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_layout"
+        android:layout_centerInParent="true"
+        android:paddingBottom="2dp"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp"
+        android:layout_marginTop="30dp"
+        android:text="下一步"
+        android:enabled="false"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:background="@drawable/text_bg"
+        android:gravity="center"
+        />
+
+
+</RelativeLayout>
+

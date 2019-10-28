@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/person_layout"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:paddingTop="30dp"
+        android:background="#523c34">
+
+        <com.stereogarage.custom.CircleImageView
+            android:id="@+id/user_photo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/fe" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/user_photo"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:id="@+id/user_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="******"
+                android:textColor="@color/color_f2f2f2"
+                android:textSize="20sp"
+                android:inputType="text"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/menu_layout_style"
+            android:onClick="gotoMyorder"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                style="@style/menu_icon_style"
+                android:src="@mipmap/order" />
+
+            <TextView
+                style="@style/menu_text_style"
+                android:text="订单详情"
+                android:textColor="#523c34"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView style="@style/menu_right_arrow_style" />
+        </LinearLayout>
+
+
+        <View style="@style/menu_divider_style" />
+
+        <LinearLayout
+            style="@style/menu_layout_style"
+            android:onClick="gotoMybook"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                style="@style/menu_icon_style"
+                android:src="@mipmap/book" />
+
+            <TextView
+                style="@style/menu_text_style"
+                android:text="我的预约"
+                android:textColor="#523c34"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView style="@style/menu_right_arrow_style" />
+        </LinearLayout>
+
+
+        <View style="@style/menu_divider_style" />
+
+        <LinearLayout
+            style="@style/menu_layout_style"
+            android:onClick="gotoMyinfo"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                style="@style/menu_icon_style"
+                android:src="@mipmap/edit"/>
+
+            <TextView
+                style="@style/menu_text_style"
+                android:text="修改资料"
+                android:textColor="#523c34"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView style="@style/menu_right_arrow_style" />
+        </LinearLayout>
+
+        <View style="@style/menu_divider_style" />
+
+        <LinearLayout
+            style="@style/menu_layout_style"
+            android:onClick="gotoAboutus"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                style="@style/menu_icon_style"
+                android:src="@mipmap/about_us" />
+
+            <TextView
+                style="@style/menu_text_style"
+                android:text="关于我们"
+                android:textColor="#523c34"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView style="@style/menu_right_arrow_style" />
+        </LinearLayout>
+
+       <View style="@style/menu_divider_style" />
+
+        <LinearLayout
+            style="@style/menu_layout_style"
+            android:onClick="gotoExit"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                style="@style/menu_icon_style"
+                android:src="@mipmap/exit" />
+
+            <TextView
+                style="@style/menu_text_style"
+                android:text="退出登录"
+                android:textColor="#523c34"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView style="@style/menu_right_arrow_style" />
+        </LinearLayout>
+
+        <View style="@style/menu_divider_style" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#523c34"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <ImageView
+                    android:id="@+id/menu_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:onClick="finishActivity"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:src="@mipmap/return_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="我的资料"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/person_layout"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:paddingTop="80dp">
+
+        <com.stereogarage.custom.CircleImageView
+            android:id="@+id/user_photo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/fe" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/user_photo"
+            android:paddingTop="0dp">
+
+            <TextView
+                android:id="@+id/user_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="******"
+                android:textColor="#663300"
+                android:textSize="20sp"
+                android:inputType="text"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/person_layout"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/radius_drawable_bg"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+    <LinearLayout
+        android:id="@+id/car_type_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/cart" />
+
+        <EditText
+            android:id="@+id/et_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="#00000000"
+            android:text="商务车"
+            android:singleLine="true"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textCursorDrawable="@drawable/edittext_cursor"/>
+
+    </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/input_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_below="@+id/input_layout"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/radius_drawable_bg"
+        android:orientation="vertical"
+        android:padding="10dp" >
+        <LinearLayout
+            android:id="@+id/car_number_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/carn" />
+
+            <EditText
+                android:id="@+id/et_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="#00000000"
+                android:text="123456"
+                android:singleLine="true"
+                android:padding="5dp"
+                android:textSize="16sp"
+                android:textCursorDrawable="@drawable/edittext_cursor"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/finish_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_layout2"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btn_chaninfo"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginRight="5dp"
+            android:layout_margin="10dp"
+            android:minHeight="40dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:text="修改资料"
+            android:textSize="24dp"
+            android:textColor="#FFFFFF"
+            android:textCursorDrawable="@drawable/edittext_cursor"
+            android:background="@drawable/text_bg"
+            android:singleLine="true" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/finish2_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/finish_layout"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btn_chanpass"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginRight="5dp"
+            android:layout_margin="10dp"
+            android:minHeight="40dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:text="修改密码"
+            android:textSize="24dp"
+            android:textColor="#FFFFFF"
+            android:textCursorDrawable="@drawable/edittext_cursor"
+            android:background="@drawable/text_bg"
+            android:singleLine="true" />
+
+    </FrameLayout>
+    </RelativeLayout>

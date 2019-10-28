@@ -1,0 +1,133 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@mipmap/splash"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_343333"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#523c34">
+
+            <TextView
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="退出"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:clickable="true"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="聚力立停"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/change_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:text="修改密码"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:clickable="true"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/person_layout"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:layout_marginTop="70dp">
+
+        <com.stereogarage.custom.CircleImageView
+            android:id="@+id/user_photo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/fe" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/user_photo">
+
+            <TextView
+                android:id="@+id/user_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18959204245"
+                android:textColor="#663300"
+                android:textSize="20sp"
+                android:inputType="text"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/person_layout"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <com.stereogarage.view.CircleMenuLayout
+            android:id="@+id/id_menulayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="100dp"
+            android:background="@mipmap/circle_bg3" >
+
+            <RelativeLayout
+                android:id="@id/id_circle_menu_item_center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+
+
+                <com.stereogarage.custom.CircleImageView
+
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_launcher" />
+
+                <ImageView
+                    android:layout_width="116.0dip"
+                    android:layout_height="116.0dip"
+                    android:layout_centerInParent="true"
+                    android:background="@mipmap/turnplate_mask_unlogin_normal" />
+            </RelativeLayout>
+        </com.stereogarage.view.CircleMenuLayout>
+
+    </LinearLayout>
+</RelativeLayout>
+

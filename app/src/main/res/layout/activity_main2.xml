@@ -1,0 +1,163 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/color_343333"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#523c34">
+
+                <TextView
+                    android:id="@+id/exit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="退出"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    android:clickable="true"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"/>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="聚力立停"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/change_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="修改密码"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    android:clickable="true"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/person_layout"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:layout_marginTop="70dp">
+
+        <com.stereogarage.custom.CircleImageView
+            android:id="@+id/user_photo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/fe" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/user_photo">
+
+            <TextView
+                android:id="@+id/user_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18959204245"
+                android:textColor="#663300"
+                android:textSize="20sp"
+                android:inputType="text"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/gotonum"
+                android:layout_below="@+id/person_layout"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginRight="5dp"
+                android:layout_margin="20dp"
+                android:minHeight="40dp"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:text="车位剩余情况"
+                android:textSize="24dp"
+                android:textColor="#FFFFFF"
+                android:textCursorDrawable="@drawable/edittext_cursor"
+                android:background="@drawable/text_bg"
+                android:singleLine="true" />
+
+    <Button
+        android:id="@+id/gotoerr"
+        android:layout_below="@+id/gotonum"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginRight="5dp"
+        android:layout_margin="20dp"
+        android:minHeight="40dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="车库运行情况"
+        android:textSize="24dp"
+        android:textColor="#FFFFFF"
+        android:textCursorDrawable="@drawable/edittext_cursor"
+        android:background="@drawable/text_bg"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/gotodata"
+        android:layout_below="@+id/gotoerr"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginRight="5dp"
+        android:layout_margin="20dp"
+        android:minHeight="40dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="所有订单数据"
+        android:textSize="24dp"
+        android:textColor="#FFFFFF"
+        android:textCursorDrawable="@drawable/edittext_cursor"
+        android:background="@drawable/text_bg"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/gototriger"
+        android:layout_below="@+id/gotodata"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginRight="5dp"
+        android:layout_margin="20dp"
+        android:minHeight="40dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="触发器管理"
+        android:textSize="24dp"
+        android:textColor="#FFFFFF"
+        android:textCursorDrawable="@drawable/edittext_cursor"
+        android:background="@drawable/text_bg"
+        android:singleLine="true" />
+
+</RelativeLayout>
+
