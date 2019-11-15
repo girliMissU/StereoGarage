@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
+android:layout_width="wrap_content"
 android:layout_height="match_parent"
 android:orientation="vertical">
 
@@ -36,46 +36,77 @@ android:orientation="vertical">
                     android:text="聚力立停"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
-<LinearLayout
-    android:id="@+id/nearest_icon"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentRight="true"
-    android:layout_centerVertical="true"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
-    android:orientation="vertical"
-    android:clickable="true">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/nearest" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/nearest_icon"
-        android:text="最近车库"
-        android:textSize="12sp"
-        android:textColor="#ffffff"/>
-</LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/nearest_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:orientation="vertical"
+                        android:clickable="true">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/nearest" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/nearest_icon"
+                            android:text="最近车库"
+                            android:textSize="12sp"
+                            android:textColor="#ffffff"/>
+                    </LinearLayout>
 
             </RelativeLayout>
+
+
         </LinearLayout>
 
-     <com.baidu.mapapi.map.MapView
-         android:id="@+id/bmapView"
-         android:layout_below="@id/title_layout"
-         android:layout_width="fill_parent"
-         android:layout_height="fill_parent"
-         android:clickable="true" />
+    <LinearLayout
+        android:id="@+id/search_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_layout"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/edge_shadow_bg">
+
+        <AutoCompleteTextView
+            android:id="@+id/searchkey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="输入目的地，为你推荐车库" />
+        <Button
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/text_bg"
+            android:layout_weight="4"
+            android:textColor="@color/white"
+            android:text="车库推荐"/>
+    </LinearLayout>
+
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/search_layout"
+        android:clickable="true" />
 
     <View
         android:id="@+id/shadow"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@id/title_layout"
+        android:layout_below="@id/search_layout"
         android:clickable="true"
         android:visibility="gone" />
 
@@ -238,8 +269,11 @@ android:orientation="vertical">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="100dp"
+
         android:layout_alignParentBottom="true"
-        android:layout_margin="30dp"
+        android:layout_above="@+id/dingwei_layout"
         android:orientation="vertical">
 
         <ImageView
@@ -260,5 +294,51 @@ android:orientation="vertical">
             android:clickable="true"
             android:src="@mipmap/get_location_icon" />
     </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/dingwei_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/edge_shadow_bg"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="10sp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/current"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:drawableLeft="@mipmap/dingwei"
+            android:padding="5dp"
+            android:text="江苏省南京市玄武区东南大学四牌楼校区"
+            android:lines="2"
+            android:textColor="#663300"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/tuijian_bt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:layout_margin="15dp"
+            android:background="@drawable/text_bg"
+            android:clickable="true"
+            android:padding="10dp"
+            android:text="附近车库推荐"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
 </RelativeLayout>
 
