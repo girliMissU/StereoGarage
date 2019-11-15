@@ -15,7 +15,7 @@ public class RecommendActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recommend);
+        setContentView(R.layout.activity_record);
     }
 
     @Override
