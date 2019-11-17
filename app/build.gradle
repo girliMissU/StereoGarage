@@ -45,6 +45,7 @@ dependencies {
     compile name: 'SMSSDKGUI-3.0.0', ext: 'aar'
     testCompile 'junit:junit:4.12'
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    implementation 'org.apache.commons:commons-lang3:3.7'
 
 }
 

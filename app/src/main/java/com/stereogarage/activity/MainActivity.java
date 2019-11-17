@@ -125,6 +125,10 @@ public class MainActivity extends FragmentActivity implements OnGetPoiSearchResu
     private double mLatitude;
     private double mLongtitude;
 
+
+    private double destLatitude;
+    private double destLongtitude;
+
     private BitmapDescriptor mIconLocation;
     private MyOrientationListener myOrientationListener;
     private float mCurrentX;
@@ -134,7 +138,7 @@ public class MainActivity extends FragmentActivity implements OnGetPoiSearchResu
     public static TextView current_addr,current;
     private LinearLayout dingwei_layout,nearest_icon,search_layout,title_layout, car_layout, car_distance_layout, info_layout,confirm_book_layout,text_layout, confirm_cancel_layout,layout,button_layout;
     private TextView text1,text2,title,user_name1,book_countdown, textview_time, textview_distance, textview_price, textview_num,book_bt;
-    public static TextView car_distance, car_time, car_price, car_num, navi_bt;
+    public static TextView car_distance, car_time, car_price, car_num, navi_bt,tuijian_bt;
 
     private ArrayList<MapData> md;
 
@@ -152,10 +156,24 @@ public class MainActivity extends FragmentActivity implements OnGetPoiSearchResu
     public LateInfo li;
     public ParkingInfo pi;
     private double dis;
+
+
     private LatLng nearestlatLng;
+    public  LatLng dest;
 
     private View view;
 
+    private MapData ZongHe,MinToCurrent,MinToDest,FreeMax,PriceLow;
+    public double dZongHe;
+    public double d2ZongHe;
+    public double dMinToCurrent;
+    public double d2MinToCurrent;
+    public double dMinToDest;
+    public double d2MinToDest;
+    public double dFreeMax;
+    public double d2FreeMax;
+    public double dPriceLow;
+    public double d2PriceLow;
 
     private PoiSearch mPoiSearch = null;
     private SuggestionSearch mSuggestionSearch = null;
@@ -393,6 +411,7 @@ public class MainActivity extends FragmentActivity implements OnGetPoiSearchResu
         mLeftDrawerLayout = (LeftDrawerLayout) findViewById(R.id.id_drawerlayout);
         book_bt = (TextView) findViewById(R.id.book_bt);
         button_layout=(LinearLayout) findViewById(R.id.button_layout);
+        tuijian_bt = (TextView) findViewById(R.id.tuijian_bt);
 
        // text1=(TextView) findViewById(R.id.text1);
         text2=(TextView) findViewById(R.id.text2);
@@ -405,6 +424,7 @@ public class MainActivity extends FragmentActivity implements OnGetPoiSearchResu
         nearest_icon.setOnClickListener(this);
         shadowView.setOnClickListener(this);
         search.setOnClickListener(this);
+        tuijian_bt.setOnClickListener(this);
 
         baiduMap = mapView.getMap();
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(18.0f);
@@ -565,6 +585,14 @@ public class MainActivity extends FragmentActivity implements OnGetPoiSearchResu
                 break;
             case R.id.search:
                 searchButtonProcess(view);
+//                Intent intent1 = new Intent(getApplicationContext(),RecommendActivity.class);
+//                //intent1.putExtra("user",value);
+//                startActivity(intent1);
+                break;
+            case R.id.tuijian_bt:
+                LatLng ptMine = new LatLng(mLatitude, mLongtitude);
+                recommend(md, ptMine);
+ //               Toast.makeText(MainActivity.this, "dianjiledianjile", Toast.LENGTH_LONG).show();
                 break;
         }
     }
@@ -977,56 +1005,219 @@ public class MainActivity extends FragmentActivity implements OnGetPoiSearchResu
         searchType = 1;
         //String citystr = editCity.getText().toString();
         String keystr = keyWorldsView.getText().toString();
-        mPoiSearch.searchInCity((new PoiCitySearchOption())
-                .city(city).keyword(keystr).pageNum(loadIndex));
-        GeoCoder mSearch = GeoCoder.newInstance();
+        if(keystr == null || keystr.length() == 0)
+        {
+            Toast.makeText(MainActivity.this, "请输入目的地",
+                    Toast.LENGTH_LONG).show();
+        } else {
+            mPoiSearch.searchInCity((new PoiCitySearchOption())
+                    .city(city).keyword(keystr).pageNum(loadIndex));
+            GeoCoder mSearch = GeoCoder.newInstance();
 
-        OnGetGeoCoderResultListener listener = new OnGetGeoCoderResultListener() {
-            // 反地理编码查询结果回调函数
-            @Override
-            public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
-                if (result == null
-                        || result.error != SearchResult.ERRORNO.NO_ERROR) {
-                    // 没有检测到结果
-                    Toast.makeText(MainActivity.this, "抱歉，未能找到结果",
-                            Toast.LENGTH_LONG).show();
+            OnGetGeoCoderResultListener listener = new OnGetGeoCoderResultListener() {
+                // 反地理编码查询结果回调函数
+                @Override
+                public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
+                    if (result == null
+                            || result.error != SearchResult.ERRORNO.NO_ERROR) {
+                        // 没有检测到结果
+                        Toast.makeText(MainActivity.this, "抱歉，未能找到结果",
+                                Toast.LENGTH_LONG).show();
+                    }
+                    //Toast.makeText(MainActivity.this,"位置：" + result.getAddress(), Toast.LENGTH_LONG).show();
+                    //current.setText(result.getAddress());
                 }
-                //Toast.makeText(MainActivity.this,"位置：" + result.getAddress(), Toast.LENGTH_LONG).show();
-                //current.setText(result.getAddress());
-            }
 
-            // 地理编码查询结果回调函数
-            @Override
-            public void onGetGeoCodeResult(GeoCodeResult result) {
+                // 地理编码查询结果回调函数
+                @Override
+                public void onGetGeoCodeResult(GeoCodeResult result) {
 
-                if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
-                    Toast.makeText(MainActivity.this, "抱歉，未能找到结果", Toast.LENGTH_LONG)
-                            .show();
-                    return;
-                }
+                    if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
+                        Toast.makeText(MainActivity.this, "抱歉，未能找到结果", Toast.LENGTH_LONG)
+                                .show();
+                        return;
+                    }
 //                baiduMap.clear();
 //                baiduMap.addOverlay(new MarkerOptions().position(result.getLocation())
 //                        .icon(BitmapDescriptorFactory
 //                                .fromResource(R.mipmap.icon_marka)));
 //                //加上覆盖物
 //                baiduMap.setMapStatus(MapStatusUpdateFactory.newLatLng(result.getLocation()));
-                //定位
-                String strInfo = String.format("纬度：%f 经度：%f",
-                        result.getLocation().latitude, result.getLocation().longitude);
-                Toast.makeText(MainActivity.this, strInfo, Toast.LENGTH_LONG).show();
+                    //定位
+//                    String strInfo = String.format("纬度：%f 经度：%f", result.getLocation().latitude, result.getLocation().longitude);
+//                    Toast.makeText(MainActivity.this, strInfo, Toast.LENGTH_LONG).show();
+                    destLatitude = result.getLocation().latitude;
+                    destLongtitude = result.getLocation().longitude;
 
-            }
-        };
+                    dest = new LatLng(destLatitude,destLongtitude);
 
-        mSearch.setOnGetGeoCodeResultListener(listener);
-        mSearch.geocode(new GeoCodeOption().city(city).address(keystr));
+                    recommend(md, dest);
+
+                }
+            };
 
 
+            mSearch.setOnGetGeoCodeResultListener(listener);
+            mSearch.geocode(new GeoCodeOption().city(city).address(keystr));
+        }
 
 
 
 
     }
+
+
+    private void recommend(List<MapData> infos, LatLng dest) {
+
+        List<MapData> infosNear = new ArrayList<>();
+
+        LatLng ptMine = new LatLng(mLatitude, mLongtitude);
+
+        for (int i = 0; i < infos.size(); i++) {
+
+            LatLng ptPosition = new LatLng(infos.get(i).getLatitude(), infos.get(i).getLongtitude());
+            double d = DistanceUtil.getDistance(dest, ptPosition);
+
+            if(Double.doubleToLongBits(3000)>Double.doubleToLongBits(d)){
+                infosNear.add(infos.get(i));
+            }
+
+
+        }
+        if(infosNear.size() == 0){
+            Toast.makeText(this, "抱歉，附近三公里内没有车库！", Toast.LENGTH_LONG).show();
+        } else{
+//
+//            String addressZongHe = infosNear.get(0).getAddress();
+//            Double priceZongHe = infosNear.get(0).getPrice_per_hour();
+//            int freeNumZongHe = infosNear.get(0).getFreenum();
+//            int garageNumZongHe = infosNear.get(0).getId();
+//            double dZongHe;
+//            double d2ZongHe;
+//
+//            String addressMinToCurrent = infosNear.get(0).getAddress();
+//            Double priceMinToCurrent = infosNear.get(0).getPrice_per_hour();
+//            int freeNumMinToCurrent = infosNear.get(0).getFreenum();
+//            int garageNumMinToCurrent = infosNear.get(0).getId();
+//
+//
+//            String addressMinToDest = infosNear.get(0).getAddress();
+//            Double priceMinToDest = infosNear.get(0).getPrice_per_hour();
+//            int freeNumMinToDest = infosNear.get(0).getFreenum();
+//            int garageNumMinToDest = infosNear.get(0).getId();
+//
+//            String addressFreeMax = infosNear.get(0).getAddress();
+//            Double priceFreeMax = infosNear.get(0).getPrice_per_hour();
+//            int freeNumFreeMax = infosNear.get(0).getFreenum();
+//            int garageNumFreeMax = infosNear.get(0).getId();
+//
+//            String addressPriceLow = infosNear.get(0).getAddress();
+//            Double pricePriceLow = infosNear.get(0).getPrice_per_hour();
+//            int freeNumPriceLow = infosNear.get(0).getFreenum();
+//            int garageNumPriceLow = infosNear.get(0).getId();
+
+            ZongHe = infosNear.get(0);
+            MinToCurrent = infosNear.get(0);
+            MinToDest = infosNear.get(0);
+            FreeMax = infosNear.get(0);
+            PriceLow = infosNear.get(0);
+
+            dZongHe = DistanceUtil.getDistance(ptMine, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+            d2ZongHe = DistanceUtil.getDistance(dest, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+            dMinToCurrent = DistanceUtil.getDistance(ptMine, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+            d2MinToCurrent = DistanceUtil.getDistance(dest, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+            dMinToDest = DistanceUtil.getDistance(ptMine, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+            d2MinToDest = DistanceUtil.getDistance(dest, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+            dFreeMax = DistanceUtil.getDistance(ptMine, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+            d2FreeMax = DistanceUtil.getDistance(dest, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+            dPriceLow = DistanceUtil.getDistance(ptMine, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+            d2PriceLow = DistanceUtil.getDistance(dest, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+
+
+
+
+            double min = DistanceUtil.getDistance(ptMine, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+            double minToDest = DistanceUtil.getDistance(dest, new LatLng(infosNear.get(0).getLatitude(),infosNear.get(0).getLongtitude()));
+            int maxnum = infosNear.get(0).getFreenum();
+            double minprice = infos.get(0).getPrice_per_hour();
+
+            for (int i = 1; i < infosNear.size(); i++) {
+
+                LatLng ptPosition = new LatLng(infosNear.get(i).getLatitude(), infosNear.get(i).getLongtitude());
+                double d = DistanceUtil.getDistance(ptMine, ptPosition);
+                double d2 = DistanceUtil.getDistance(dest, ptPosition);
+
+                if (min > d) {
+//                    latLngMinToCurrent = new LatLng(infosNear.get(i).getLatitude(), infosNear.get(i).getLongtitude());
+//                    priceMinToCurrent = infosNear.get(i).getPrice_per_hour();
+//                    freeNumMinToCurrent = infosNear.get(i).getFreenum();
+//                    garageNumMinToCurrent = infosNear.get(i).getId();
+                    MinToCurrent = infosNear.get(i);
+                    dMinToCurrent = DistanceUtil.getDistance(ptMine, new LatLng(infosNear.get(i).getLatitude(),infosNear.get(i).getLongtitude()));
+                    d2MinToCurrent = DistanceUtil.getDistance(dest, new LatLng(infosNear.get(i).getLatitude(),infosNear.get(i).getLongtitude()));
+                }
+                if (minToDest > d2){
+//                    latLngMinToDest = new LatLng(infosNear.get(i).getLatitude(), infosNear.get(i).getLongtitude());
+//                    priceMinToDest = infosNear.get(i).getPrice_per_hour();
+//                    freeNumMinToDest = infosNear.get(i).getFreenum();
+//                    garageNumMinToDest = infosNear.get(i).getId();
+                    MinToDest = infosNear.get(i);
+                    dMinToDest = DistanceUtil.getDistance(ptMine, new LatLng(infosNear.get(i).getLatitude(),infosNear.get(i).getLongtitude()));
+                    d2MinToDest = DistanceUtil.getDistance(dest, new LatLng(infosNear.get(i).getLatitude(),infosNear.get(i).getLongtitude()));
+                }
+                if (maxnum < infosNear.get(i).getFreenum()){
+//                    latLngFreeMax = new LatLng(infosNear.get(i).getLatitude(), infosNear.get(i).getLongtitude());
+//                    priceFreeMax = infosNear.get(i).getPrice_per_hour();
+//                    freeNumFreeMax = infosNear.get(i).getFreenum();
+//                    garageNumFreeMax = infosNear.get(i).getId();
+                    FreeMax = infosNear.get(i);
+                    dFreeMax = DistanceUtil.getDistance(ptMine, new LatLng(infosNear.get(i).getLatitude(),infosNear.get(i).getLongtitude()));
+                    d2FreeMax = DistanceUtil.getDistance(dest, new LatLng(infosNear.get(i).getLatitude(),infosNear.get(i).getLongtitude()));
+                }
+                if (minprice > infosNear.get(i).getPrice_per_hour()){
+//                    latLngPriceLow = new LatLng(infosNear.get(i).getLatitude(), infosNear.get(i).getLongtitude());
+//                    pricePriceLow = infosNear.get(i).getPrice_per_hour();
+//                    freeNumPriceLow = infosNear.get(i).getFreenum();
+//                    garageNumPriceLow = infosNear.get(i).getId();
+                    PriceLow = infosNear.get(i);
+                    dPriceLow = DistanceUtil.getDistance(ptMine, new LatLng(infosNear.get(i).getLatitude(),infosNear.get(i).getLongtitude()));
+                    d2PriceLow = DistanceUtil.getDistance(dest, new LatLng(infosNear.get(i).getLatitude(),infosNear.get(i).getLongtitude()));
+                }
+            }
+
+            Intent intent1 = new Intent(getApplicationContext(),RecommendActivity.class);
+            intent1.putExtra("user",value);
+            intent1.putExtra("MinToCurrent",MinToCurrent);
+//            intent1.putExtra("priceMinToCurrent",priceMinToCurrent);
+//            intent1.putExtra("freeNumMinToCurrent",freeNumMinToCurrent);
+//            intent1.putExtra("garageNumMinToCurrent",garageNumMinToCurrent);
+            intent1.putExtra("MinToDest",MinToDest);
+//            intent1.putExtra("priceMinToDest",priceMinToDest);
+//            intent1.putExtra("freeNumMinToDest",freeNumMinToDest);
+//            intent1.putExtra("garageNumMinToDest",garageNumMinToDest);
+            intent1.putExtra("FreeMax",FreeMax);
+//            intent1.putExtra("priceFreeMax",priceFreeMax);
+//            intent1.putExtra("freeNumFreeMax",freeNumFreeMax);
+//            intent1.putExtra("garageNumFreeMax",garageNumFreeMax);
+            intent1.putExtra("PriceLow",PriceLow);
+//            intent1.putExtra("pricePriceLow",pricePriceLow);
+//            intent1.putExtra("freeNumPriceLow",freeNumPriceLow);
+//            intent1.putExtra("garageNumPriceLow",garageNumPriceLow);
+            intent1.putExtra("dMinToCurrent",dMinToCurrent);
+            intent1.putExtra("d2MinToCurrent",d2MinToCurrent);
+            intent1.putExtra("dMinToDest",dMinToDest);
+            intent1.putExtra("d2MinToDest",d2MinToDest);
+            intent1.putExtra("dFreeMax",dFreeMax);
+            intent1.putExtra("d2FreeMax",d2FreeMax);
+            intent1.putExtra("dPriceLow",dPriceLow);
+            intent1.putExtra("d2PriceLow",d2PriceLow);
+            intent1.putExtra("mLatitude",mLatitude);
+            intent1.putExtra("mLongtitude",mLongtitude);
+            startActivity(intent1);
+        }
+    }
+
+
 
     public void goToNextPage(View v) {
         loadIndex++;
@@ -1067,8 +1258,7 @@ public class MainActivity extends FragmentActivity implements OnGetPoiSearchResu
      */
     public void onGetPoiResult(PoiResult result) {
         if (result == null || result.error == SearchResult.ERRORNO.RESULT_NOT_FOUND) {
-            Toast.makeText(this, "未找到结果", Toast.LENGTH_LONG)
-                    .show();
+            Toast.makeText(this, "未找到结果", Toast.LENGTH_LONG).show();
             return;
         }
         if (result.error == SearchResult.ERRORNO.NO_ERROR) {
@@ -1201,5 +1391,7 @@ public class MainActivity extends FragmentActivity implements OnGetPoiSearchResu
 
         bdGround.recycle();
     }
+
+
 }
 
